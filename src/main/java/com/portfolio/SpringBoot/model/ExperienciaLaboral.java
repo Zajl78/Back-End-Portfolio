@@ -30,5 +30,8 @@ public class ExperienciaLaboral {
     private String desde;
     private String hasta;
     private String logo;
+    
+    
+    
 
 }

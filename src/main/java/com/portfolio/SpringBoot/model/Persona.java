@@ -35,5 +35,8 @@ public class Persona {
     @Size(max=500)
     private String acerca_de_mi;
     private String fotoPerfil;
+    
+    
+    
 
 }

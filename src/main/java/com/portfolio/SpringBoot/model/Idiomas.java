@@ -23,4 +23,5 @@ public class Idiomas {
     private String nombre;
     private String nivel;
 
+    
 }

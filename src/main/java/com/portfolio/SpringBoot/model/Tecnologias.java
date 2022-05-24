@@ -24,4 +24,6 @@ public class Tecnologias {
     private String porcentaje;
     private String logo;
 
+    
+    
 }

@@ -21,6 +21,8 @@ public class Habilidades {
     private Long id;
 
     private String habilidad;
+    
+    
 
 }
     

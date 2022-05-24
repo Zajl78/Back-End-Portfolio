@@ -30,5 +30,8 @@ public class Formacion {
     @Size(max=500)
     private String observacion;
     private String logo;
+    
+    
+    
 
 }

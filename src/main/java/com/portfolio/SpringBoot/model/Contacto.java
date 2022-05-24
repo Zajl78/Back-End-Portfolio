@@ -26,4 +26,7 @@ public class Contacto {
     @Email
     private String email;
     
+    
+    
+    
 }

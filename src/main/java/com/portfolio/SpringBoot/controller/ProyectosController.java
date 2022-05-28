@@ -2,14 +2,12 @@ package com.portfolio.SpringBoot.controller;
 
 import com.portfolio.SpringBoot.dto.Mensaje;
 import com.portfolio.SpringBoot.model.Proyectos;
-import com.portfolio.SpringBoot.service.IProyectosService;
 import com.portfolio.SpringBoot.service.ProyectosService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -95,6 +93,9 @@ public class ProyectosController {
         proy.setProyecto(nuevoProy.getProyecto());
         proy.setFecha(nuevoProy.getFecha());
         proy.setDescripcion(nuevoProy.getDescripcion());
+        proy.setImagen(nuevoProy.getImagen());
+        proy.setLink(nuevoProy.getLink());
+        
         
         
         proyServ.saveProyectos(proy);

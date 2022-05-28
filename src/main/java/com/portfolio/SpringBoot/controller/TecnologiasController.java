@@ -59,7 +59,6 @@ public class TecnologiasController {
         return new ResponseEntity(new Mensaje("Esa Tecnología ya existe"), HttpStatus.NOT_FOUND);
         
 
-        
         tecServ.saveTecnologias(tec);
         
         return new ResponseEntity(new Mensaje("tecnología creada"), HttpStatus.OK);

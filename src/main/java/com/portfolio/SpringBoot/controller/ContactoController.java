@@ -4,14 +4,11 @@ import com.portfolio.SpringBoot.dto.Mensaje;
 import com.portfolio.SpringBoot.model.Contacto;
 import com.portfolio.SpringBoot.repository.ContactoRepository;
 import com.portfolio.SpringBoot.service.ContactoService;
-import com.portfolio.SpringBoot.service.IContactoService;
 import java.util.List;
 import javax.validation.Valid;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -106,7 +103,5 @@ public class ContactoController {
         
         return new ResponseEntity(new Mensaje("contacto actualizado"), HttpStatus.OK);
     }
-    
-    
     
 }

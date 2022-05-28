@@ -11,9 +11,12 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class ContactoService implements IContactoService {
 
+ 
+
     @Autowired
     public ContactoRepository contactRepo;
-
+    
+    
     
     @Override
     public List<Contacto> getContacto() {
@@ -63,5 +66,4 @@ public class ContactoService implements IContactoService {
     }
     
     
-
 }

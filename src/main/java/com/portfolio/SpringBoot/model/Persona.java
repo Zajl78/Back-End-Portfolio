@@ -36,7 +36,5 @@ public class Persona {
     private String acerca_de_mi;
     private String fotoPerfil;
     
-    
-    
 
 }

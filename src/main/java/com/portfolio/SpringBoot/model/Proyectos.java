@@ -25,6 +25,8 @@ public class Proyectos {
     @Size(max=500)
     private String descripcion;
     private String fecha;
+    private String imagen;
+    private String link;
 
     
     

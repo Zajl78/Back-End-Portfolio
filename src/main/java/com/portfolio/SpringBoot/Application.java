@@ -32,7 +32,7 @@ public class Application {
                       .allowedHeaders("*")
                       .allowedMethods("*")
                       .allowCredentials(false)
-                      .allowedOrigins("https://frontend-portfolio-zulyma-j.web.app/");
+                      .allowedOrigins("https://frontend-portfolio-zulyma-j.web.app");
               }
            };
        }

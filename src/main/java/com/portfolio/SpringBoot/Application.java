@@ -32,7 +32,7 @@ public class Application {
                       .allowedHeaders("*")
                       .allowedMethods("*")
                       .allowCredentials(false)
-                      .allowedOrigins("https://damp-island-31662.herokuapp.com/*");
+                      .allowedOrigins("https://frontend-portfolio-zulyma-j.web.app/");
               }
            };
        }

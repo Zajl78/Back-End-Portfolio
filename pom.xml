@@ -66,7 +66,7 @@
 	 <dependency>
 	  <groupId>javax.validation</groupId>
 	  <artifactId>validation-api</artifactId>
-	  <version>2.0.1.Final</version>
+	  
 	 </dependency>
 	 <dependency>
 	  <groupId>org.springframework.boot</groupId>
@@ -154,18 +154,17 @@
 	  <version>5.3.20</version>
 	  <type>module</type>
 	 </dependency>
+	
 	 <dependency>
-	  <groupId>junit</groupId>
-	  <artifactId>junit</artifactId>
-	  <version>4.12</version>
+	  <groupId>org.hibernate</groupId>
+	  <artifactId>hibernate-entitymanager</artifactId>
+	  <version>5.6.7.Final</version>
 	 </dependency>
 	 <dependency>
-	  <groupId>org.springframework</groupId>
-	  <artifactId>spring-test</artifactId>
-	  <version>5.3.20</version>
-	  <type>module</type>
+	  <groupId>org.hibernate.orm</groupId>
+	  <artifactId>hibernate-core</artifactId>
+	  <version>6.0.0.Alpha7</version>
 	 </dependency>
-	 
 	</dependencies>
 
 	<build>

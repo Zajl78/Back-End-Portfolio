@@ -22,13 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/formacion")
 public class FormacionController {
 
     @Autowired
     public FormacionService formServ;
 
-    @GetMapping("/persona/formacion/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Formacion>> getFormacion() {
        
@@ -36,7 +36,7 @@ public class FormacionController {
         return new ResponseEntity(getFormacion, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/formacion/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Formacion> getById(@PathVariable (value = "id") Long id) {
         
         if(!formServ.existsFormacionById(id))
@@ -49,7 +49,7 @@ public class FormacionController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/formacion/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createFormacion(@Valid @RequestBody Formacion form) {
         
          if(formServ.existsFormacionByTitulo(form.getTitulo()) )
@@ -65,7 +65,7 @@ public class FormacionController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/formacion/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteFormacion(@PathVariable (value = "id") Long id) {
 
        
@@ -76,7 +76,7 @@ public class FormacionController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/formacion/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editFormacion(@PathVariable (value = "id") Long id, @Valid @RequestBody Formacion nuevaForm) {
         
          if(!formServ.existsFormacionById(id))

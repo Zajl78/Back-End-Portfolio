@@ -22,13 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/proyectos")
 public class ProyectosController {
 
     @Autowired
     public ProyectosService proyServ;
 
-    @GetMapping("/persona/proyectos/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Proyectos>> getProyectos () {
        
@@ -36,7 +36,7 @@ public class ProyectosController {
         return new ResponseEntity(getProyectos, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/proyectos/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Proyectos> getById(@PathVariable (value = "id") Long id) {
         
         if(!proyServ.existsProyectosById(id))
@@ -49,7 +49,7 @@ public class ProyectosController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/proyectos/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createProyectos(@Valid @RequestBody Proyectos proy) {
         
          if(proyServ.existsProyectosByProyecto(proy.getProyecto()) )
@@ -65,7 +65,7 @@ public class ProyectosController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/proyectos/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteProyectos(@PathVariable (value = "id") Long id) {
 
         
@@ -76,7 +76,7 @@ public class ProyectosController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/proyectos/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editProyectos(@PathVariable (value = "id") Long id, @Valid @RequestBody Proyectos nuevoProy) {
     
          if(!proyServ.existsProyectosById(id))

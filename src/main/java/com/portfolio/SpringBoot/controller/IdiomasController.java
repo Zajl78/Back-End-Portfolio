@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/idiomas")
 public class IdiomasController {
 
     @Autowired
     public IdiomasService langServ;
     
-    @GetMapping("/persona/idiomas/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Idiomas>> getIdiomasPorPersonaId() {
        
@@ -38,7 +38,7 @@ public class IdiomasController {
         return new ResponseEntity(getIdiomas, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/idiomas/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Idiomas> getById(@PathVariable (value = "id") Long id) {
         
         if(!langServ.existsIdiomasById(id))
@@ -51,7 +51,7 @@ public class IdiomasController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/idiomas/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createIdiomas(@Valid @RequestBody Idiomas lang) {
         
          if(langServ.existsIdiomasByNombre(lang.getNombre()) )
@@ -67,7 +67,7 @@ public class IdiomasController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/idiomas/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteIdiomas(@PathVariable (value = "id") Long id) {
 
         
@@ -78,7 +78,7 @@ public class IdiomasController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/idiomas/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editIdiomas(@PathVariable (value = "id") Long id, @Valid @RequestBody Idiomas nuevoLang) {
         
         if(!langServ.existsIdiomasById(id))

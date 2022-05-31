@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/contacto")
 public class ContactoController {
 
     @Autowired
@@ -31,7 +31,7 @@ public class ContactoController {
     @Autowired
     public ContactoRepository contactRepo;
     
-    @GetMapping("/persona/contacto/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Contacto>> getContacto() {
        
@@ -39,7 +39,7 @@ public class ContactoController {
         return new ResponseEntity(getContacto, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/contacto/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Contacto> getById(@PathVariable (value = "id") Long id) {
         
         if(!contactServ.existsContactoById(id))
@@ -53,7 +53,7 @@ public class ContactoController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/contacto/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createContacto(@Valid @RequestBody Contacto cont) {
         
 //        if(StringUtils.isBlank(cont.getDireccion(), cont.getTelefono(), cont.getEmail()))
@@ -70,7 +70,7 @@ public class ContactoController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/contacto/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteContacto(@PathVariable (value = "id") Long id) {
 
         
@@ -81,7 +81,7 @@ public class ContactoController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/contacto/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editContacto(@PathVariable (value = "id") Long id, @Valid @RequestBody Contacto nuevoCont) {
         
         

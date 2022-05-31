@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping("/api/persona/experienciaLaboral")
 public class ExperienciaLaboralController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class ExperienciaLaboralController {
     
     
     
-    @GetMapping("/persona/experienciaLaboral/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<ExperienciaLaboral>> getExperienciaLaboral() {
        
@@ -42,7 +42,7 @@ public class ExperienciaLaboralController {
     }
     
     
-    @GetMapping("/persona/experienciaLaboral/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<ExperienciaLaboral> getById(@PathVariable (value = "id") Long id) {
         
         if(!expServ.existsExperienciaLaboralById(id))
@@ -55,7 +55,7 @@ public class ExperienciaLaboralController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/experienciaLaboral/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createExperienciaLaboral(@Valid @RequestBody ExperienciaLaboral exp) {
         
         if(expServ.existsExperienciaLaboralByPuesto(exp.getPuesto()) )
@@ -70,7 +70,7 @@ public class ExperienciaLaboralController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/experienciaLaboral/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteExperienciaLaboral(@PathVariable (value = "id") Long id) {
 
         
@@ -81,7 +81,7 @@ public class ExperienciaLaboralController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/experienciaLaboral/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editExperienciaLaboral(@PathVariable (value = "id") Long id, @Valid @RequestBody ExperienciaLaboral nuevaExp) {
         
        if(!expServ.existsExperienciaLaboralById(id))

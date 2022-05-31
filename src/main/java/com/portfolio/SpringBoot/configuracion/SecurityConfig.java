@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests().antMatchers("/**").permitAll()
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated();
         
          http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -90,25 +90,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     
 
-    @Component
-    public class CrossOriginConfiguration {
+   
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration corsConfiguration = new CorsConfiguration();
-
-    corsConfiguration.applyPermitDefaultValues();
-    corsConfiguration.addAllowedMethod(HttpMethod.PUT);
-    corsConfiguration.addAllowedMethod(HttpMethod.DELETE);
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", corsConfiguration);
-
-    return source;
-    }
-
-    }
-
+    
 
     
     

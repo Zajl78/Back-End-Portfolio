@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/habilidades")
 public class HabilidadesController {
 
     @Autowired
     public HabilidadesService habServ;
 
-    @GetMapping("/persona/habilidades/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Habilidades>> getHabilidades() {
        
@@ -38,7 +38,7 @@ public class HabilidadesController {
         return new ResponseEntity(getHabilidades, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/habilidades/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Habilidades> getById(@PathVariable (value = "id") Long id) {
         
         if(!habServ.existsHabilidadesById(id))
@@ -51,7 +51,7 @@ public class HabilidadesController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/habilidades/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createHabilidades(@Valid @RequestBody Habilidades hab) {
         
         if(habServ.existsHabilidadesByHabilidad(hab.getHabilidad()) )
@@ -66,7 +66,7 @@ public class HabilidadesController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/habilidades/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteHabilidades(@PathVariable (value = "id") Long id) {
 
         
@@ -77,7 +77,7 @@ public class HabilidadesController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/habilidades/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editHabilidades(@PathVariable (value = "id") Long id, @Valid @RequestBody Habilidades nuevaHab) {
         
          if(!habServ.existsHabilidadesById(id))

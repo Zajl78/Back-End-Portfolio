@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona/tecnologias")
 public class TecnologiasController {
 
     @Autowired
     public TecnologiasService tecServ;
 
-    @GetMapping("/persona/tecnologias/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Tecnologias>> getTecnologias() {
        
@@ -38,7 +38,7 @@ public class TecnologiasController {
         return new ResponseEntity(getTecnologias, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/tecnologias/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Tecnologias> getById(@PathVariable (value = "id") Long id) {
         
         if(!tecServ.existsTecnologiasById(id))
@@ -51,7 +51,7 @@ public class TecnologiasController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/tecnologias/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createTecnologias(@Valid @RequestBody Tecnologias tec) {
 
          if(tecServ.existsTecnologiasByTecnologia(tec.getTecnologia()) )
@@ -66,7 +66,7 @@ public class TecnologiasController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/tecnologias/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deleteTecnologias(@PathVariable (value = "id") Long id) {
 
         
@@ -77,7 +77,7 @@ public class TecnologiasController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/tecnologias/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editTecnologias(@PathVariable (value = "id") Long id, @Valid @RequestBody Tecnologias nuevaTec) {
     
          if(!tecServ.existsTecnologiasById(id))

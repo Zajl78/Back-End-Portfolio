@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
+@RequestMapping ("/api/persona")
 public class PersonaController {
 
     @Autowired
     public PersonaService persoServ;
 
-    @GetMapping("/persona/traer")
+    @GetMapping("/traer")
     @ResponseBody
     public ResponseEntity<List<Persona>> getPersona() {
        
@@ -38,7 +38,7 @@ public class PersonaController {
         return new ResponseEntity(getPersonas, HttpStatus.OK);
     }
     
-    @GetMapping("/persona/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Persona> getById(@PathVariable (value = "id") Long id) {
         
         if(!persoServ.existsPersonaById(id))
@@ -51,7 +51,7 @@ public class PersonaController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/crear")
+    @PostMapping("/crear")
     public ResponseEntity<?> createPersona(@Valid @RequestBody Persona per) {
         
          if(persoServ.existsPersonaByFullName(per.getFullName()) )
@@ -67,7 +67,7 @@ public class PersonaController {
     }
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> deletePersona(@PathVariable (value = "id") Long id) {
 
         
@@ -78,7 +78,7 @@ public class PersonaController {
     
     
 //    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/editar/{id}")
+    @PutMapping("/editar/{id}")
     public ResponseEntity<?> editPersona(@PathVariable (value = "id") Long id, @Valid @RequestBody Persona nuevaPer) {
     
          if(!persoServ.existsPersonaById(id))
